@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+openai
+requests
+pydantic
+prometheus-fastapi-instrumentator
+ray
+vllm>=0.8.0
