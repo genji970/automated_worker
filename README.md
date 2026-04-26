@@ -32,7 +32,7 @@ This demo shows the assistant accessing the **prompting user’s own Gmail accou
 You have to change path `~/automated_worker` -> `~/backend_server` after `git clone this repo`.
 
 ## How to Create `credentials.json` for Gmail OAuth
-
+# This is not a code thing(website). But need to do this to get access from google cloud site.
 ```python
 Follow these steps to create a Google OAuth JSON file and place it in this project.
 
