@@ -1,6 +1,33 @@
+## Intro.
+This project implements a local OpenAI-compatible agent backend connected to Open WebUI, vLLM, Kafka, and Gmail MCP tools.
+
+The overall flow is:
+
+```python
+Open WebUI / curl
+        ↓
+FastAPI backend
+        ↓
+Kafka async queue
+        ↓
+Async agent worker
+        ↓
+Planner / tool-use / final-answer agents
+        ↓
+Gmail MCP tools + vLLM
+```
+A key part of the design is that the system uses asynchronous I/O throughout the serving path. The FastAPI backend does not directly block while waiting for model or tool responses. Instead, requests are submitted to Kafka, and an async worker consumes jobs concurrently. This lets multiple user requests overlap while waiting on vLLM generation, Gmail API calls, or MCP tool execution.
+
+The worker uses async task dispatch so several jobs can be processed at the same time. This is important for vLLM because overlapping requests make it easier for vLLM to benefit from continuous batching. In other words, the system is not just a simple one-request-at-a-time chatbot wrapper; it is structured as an asynchronous queue-based serving pipeline.
+
+The Gmail demo shows this architecture working end-to-end: the prompting user asks about their own Gmail inbox, the request goes through the backend and worker, the Gmail MCP tool retrieves the user’s mailbox data through OAuth, and the final answer summarizes the result without exposing the user’s email address.
+
 ## demo shot
 
 <img width="1913" height="926" alt="Image" src="https://github.com/user-attachments/assets/a83bda11-def1-4c5c-832e-92f99c29007e" />
+
+This demo shows the assistant accessing the **prompting user’s own Gmail account** through the local FastAPI backend and Gmail MCP tooling. The user asks for their first Gmail message while requesting that their email address not be mentioned, and the assistant retrieves the mailbox result and summarizes the message title/date/snippet without exposing the user’s address.
+
 
 ## How to Create `credentials.json` for Gmail OAuth
 
