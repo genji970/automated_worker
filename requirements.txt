@@ -1,1 +1,17 @@
+fastapi
+uvicorn
+openai
+aiokafka
+aiosqlite
+requests
+pydantic
+prometheus-fastapi-instrumentator
+tzdata
+kafka-python
+mcp[cli]
 
+#google emial
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+beautifulsoup4
