@@ -243,9 +243,10 @@ bash scripts/run_single_node.sh
 ```
 
 ## Further plan
-parallel training/inference with ray.
-training.
-additional tool for gmail.
+`parallel training/inference with ray.`
+`training.`
+`additional tool for gmail.`
+`prompt opt`
 
 ## Acknowledgement
 
