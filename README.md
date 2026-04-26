@@ -250,4 +250,8 @@ bash scripts/run_single_node.sh
 
 ## Acknowledgement
 
-This project used qwen-2.5-7B-instruct , vllm , kafka , 
+This project uses the following open-source projects:
+
+- Qwen2.5-7B-Instruct by Qwen, licensed under Apache-2.0.
+- vLLM, licensed under Apache-2.0.
+- Apache Kafka, licensed under Apache-2.0.
