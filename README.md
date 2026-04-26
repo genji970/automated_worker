@@ -1,3 +1,7 @@
+## demo shot
+
+<img width="1913" height="926" alt="Image" src="https://github.com/user-attachments/assets/a83bda11-def1-4c5c-832e-92f99c29007e" />
+
 ## How to Create `credentials.json` for Gmail OAuth
 
 ```python
