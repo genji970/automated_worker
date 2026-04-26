@@ -28,6 +28,8 @@ The Gmail demo shows this architecture working end-to-end: the prompting user as
 
 This demo shows the assistant accessing the **prompting user’s own Gmail account** through the local FastAPI backend and Gmail MCP tooling. The user asks for their first Gmail message while requesting that their email address not be mentioned, and the assistant retrieves the mailbox result and summarizes the message title/date/snippet without exposing the user’s address.
 
+## Important
+You have to change path `automated_worker` -> `backend_server` after `git clone this repo`.
 
 ## How to Create `credentials.json` for Gmail OAuth
 
